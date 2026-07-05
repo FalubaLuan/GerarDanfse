@@ -11,3 +11,16 @@ C:\Users\luan\Documents\Desenvolvimento Aplicativos\4 - Bibliotecas\GerarDanfse\
 C:\Users\luan\Documents\Desenvolvimento Aplicativos\4 - Bibliotecas\GerarDanfse\GerarDanfse\obj\Release\net8.0\refint\GerarDanfse.dll
 C:\Users\luan\Documents\Desenvolvimento Aplicativos\4 - Bibliotecas\GerarDanfse\GerarDanfse\obj\Release\net8.0\GerarDanfse.pdb
 C:\Users\luan\Documents\Desenvolvimento Aplicativos\4 - Bibliotecas\GerarDanfse\GerarDanfse\obj\Release\net8.0\ref\GerarDanfse.dll
+C:\Users\secun\OneDrive\Documentos\Dev\GerarDanfse\GerarDanfse\obj\Release\net8.0\GerarDanfse.csproj.AssemblyReference.cache
+C:\Users\secun\OneDrive\Documentos\Dev\GerarDanfse\GerarDanfse\obj\Release\net8.0\GerarDanfse.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\secun\OneDrive\Documentos\Dev\GerarDanfse\GerarDanfse\obj\Release\net8.0\GerarDanfse.AssemblyInfoInputs.cache
+C:\Users\secun\OneDrive\Documentos\Dev\GerarDanfse\GerarDanfse\obj\Release\net8.0\GerarDanfse.AssemblyInfo.cs
+C:\Users\secun\OneDrive\Documentos\Dev\GerarDanfse\GerarDanfse\obj\Release\net8.0\GerarDanfse.csproj.CoreCompileInputs.cache
+C:\Users\secun\OneDrive\Documentos\Dev\GerarDanfse\GerarDanfse\obj\Release\net8.0\GerarDanfse.sourcelink.json
+C:\Users\secun\OneDrive\Documentos\Dev\GerarDanfse\GerarDanfse\obj\Release\net8.0\GerarDanfse.dll
+C:\Users\secun\OneDrive\Documentos\Dev\GerarDanfse\GerarDanfse\obj\Release\net8.0\refint\GerarDanfse.dll
+C:\Users\secun\OneDrive\Documentos\Dev\GerarDanfse\GerarDanfse\obj\Release\net8.0\GerarDanfse.pdb
+C:\Users\secun\OneDrive\Documentos\Dev\GerarDanfse\GerarDanfse\bin\Release\net8.0\GerarDanfse.deps.json
+C:\Users\secun\OneDrive\Documentos\Dev\GerarDanfse\GerarDanfse\bin\Release\net8.0\GerarDanfse.dll
+C:\Users\secun\OneDrive\Documentos\Dev\GerarDanfse\GerarDanfse\bin\Release\net8.0\GerarDanfse.pdb
+C:\Users\secun\OneDrive\Documentos\Dev\GerarDanfse\GerarDanfse\obj\Release\net8.0\ref\GerarDanfse.dll
