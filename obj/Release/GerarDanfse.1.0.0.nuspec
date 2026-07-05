@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>GerarDanfse</id>
+    <version>1.0.0</version>
+    <authors>Luan</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <readme>README.md</readme>
+    <description>Biblioteca para geração de DANFSe utilizando as regras da nota Nota Técnica nº 008 (SE/CGNFS-e).</description>
+    <repository type="git" commit="7c7fd8bf1aa8d4d9305e54eb659680ac5b4f4544" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="PDFsharp" version="6.2.4" exclude="Build,Analyzers" />
+        <dependency id="QRCoder" version="1.8.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\luan\Documents\Desenvolvimento Aplicativos\4 - Bibliotecas\GerarDanfse\GerarDanfse\bin\Release\net8.0\GerarDanfse.dll" target="lib\net8.0\GerarDanfse.dll" />
+    <file src="C:\Users\luan\Documents\Desenvolvimento Aplicativos\4 - Bibliotecas\GerarDanfse\GerarDanfse\README.md" target="\README.md" />
+  </files>
+</package>

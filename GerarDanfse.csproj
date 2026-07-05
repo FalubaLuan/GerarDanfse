@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>GerarDanfse</PackageId>
+    <Version>1.0.2</Version>
+    <Authors>Luan</Authors>
+    <Description>Biblioteca para geração de DANFSe utilizando as regras da nota Nota Técnica nº 008 (SE/CGNFS-e).</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PDFsharp" Version="6.2.4" />
+    <PackageReference Include="QRCoder" Version="1.8.0" />
+    <EmbeddedResource Include="Assets\**\*"/>
+    <None Include="README.md" Pack="true" PackagePath="\"></None>
+  </ItemGroup>
+
+</Project>
