@@ -21,17 +21,18 @@ Gera o DANFSe em PDF a partir do XML da **NFS-e do Leiaute Nacional**, seguindo 
 
 ## Instalação
 
-Instale as dependências necessárias:
+Instale o pacote:
 
 ```bash
-dotnet add package PDFsharp
-dotnet add package QRCoder
+dotnet add package GerarDanfse --version 1.0.3
 ```
 
-| Pacote | Finalidade |
-| --- | --- |
-| PDFsharp 6.x | Geração do PDF |
-| QRCoder | Geração do QR Code |
+A biblioteca utiliza os seguintes pacotes:
+
+- PDFsharp 6.x
+- QRCoder
+
+> **Obs.:** essas dependências são instaladas automaticamente pelo NuGet.
 
 ---
 
@@ -85,6 +86,7 @@ byte[] pdf = DanfseGenerator.Gerar(xml, deps);
 ```
 
 | Propriedade | Descrição |
+| --- | --- |
 | --- | --- |
 | `LogoPng` | Logo exibida no DANFSe (opcional) |
 | `Cancelada` | Exibe a marca d'água **CANCELADA** |
