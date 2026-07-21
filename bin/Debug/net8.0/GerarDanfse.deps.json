@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "GerarDanfse/1.0.1": {
+      "GerarDanfse/1.0.4": {
         "dependencies": {
           "PDFsharp": "6.2.4",
           "QRCoder": "1.8.0"
@@ -149,7 +149,7 @@
     }
   },
   "libraries": {
-    "GerarDanfse/1.0.1": {
+    "GerarDanfse/1.0.4": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
