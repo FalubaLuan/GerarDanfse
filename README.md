@@ -19,6 +19,8 @@ Ao enviar uma contribuição, procure:
 
 Para correções relacionadas ao layout do DANFSe, sempre que possível inclua a referência à seção correspondente da Nota Técnica e um XML de exemplo que reproduza o comportamento esperado.
 
+---
+
 ## Recursos
 
 - Geração de DANFSe em PDF
