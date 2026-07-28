@@ -24,7 +24,7 @@ Gera o DANFSe em PDF a partir do XML da **NFS-e do Leiaute Nacional**, seguindo 
 Instale o pacote:
 
 ```bash
-dotnet add package GerarDanfse --version 1.0.3
+dotnet add package GerarDanfse --version 1.0.4
 ```
 
 A biblioteca utiliza os seguintes pacotes:
