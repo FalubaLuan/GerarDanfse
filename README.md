@@ -4,6 +4,21 @@ Gerador de **DANFSe (Documento Auxiliar da NFS-e)** em **C#/.NET**.
 
 Gera o DANFSe em PDF a partir do XML da **NFS-e do Leiaute Nacional**, seguindo a **Nota Técnica nº 008 (SE/CGNFS-e)** e o layout oficial do Portal Nacional.
 
+---
+
+## Contribuindo
+
+Contribuições são aceitas por meio de **Issues** e **Pull Requests**.
+
+Ao enviar uma contribuição, procure:
+
+- Manter compatibilidade com a **Nota Técnica SE/CGNFS-e nº 008** e demais especificações do Portal Nacional da NFS-e;
+- Preservar a compatibilidade da API pública, quando possível;
+- Seguir o padrão de código existente no projeto;
+- Atualizar a documentação quando houver alteração de comportamento ou inclusão de funcionalidades.
+
+Para correções relacionadas ao layout do DANFSe, sempre que possível inclua a referência à seção correspondente da Nota Técnica e um XML de exemplo que reproduza o comportamento esperado.
+
 ## Recursos
 
 - Geração de DANFSe em PDF
@@ -100,3 +115,4 @@ byte[] pdf = DanfseGenerator.Gerar(xml, deps);
 - As fontes necessárias já acompanham a biblioteca, não sendo necessário fornecê-las manualmente.
 - O logotipo é opcional.
 - As tabelas auxiliares de municípios e NBS são opcionais, porém recomendadas para exibição de descrições amigáveis em vez de códigos.
+
