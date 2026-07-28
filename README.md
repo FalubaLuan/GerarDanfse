@@ -71,21 +71,6 @@ A biblioteca já inclui as fontes necessárias internamente. O logotipo é opcio
 
 ---
 
-### Carregando as tabelas auxiliares
-
-As tabelas de municípios e NBS são utilizadas para exibir nomes e descrições em vez dos respectivos códigos.
-
-```csharp
-DanfseTables.IbgeMunicipios["3106200"] = "Belo Horizonte";
-DanfseTables.IbgeUf["31"] = "MG";
-
-// DanfseTables.NbsDesc["114013900"] = "...";
-```
-
-Na prática, recomenda-se carregá-las a partir de um JSON ou recurso embarcado.
-
----
-
 ### Configurando opções
 
 ```csharp
@@ -116,5 +101,4 @@ byte[] pdf = DanfseGenerator.Gerar(xml, deps);
 
 - As fontes necessárias já acompanham a biblioteca, não sendo necessário fornecê-las manualmente.
 - O logotipo é opcional.
-- As tabelas auxiliares de municípios e NBS são opcionais, porém recomendadas para exibição de descrições amigáveis em vez de códigos.
 
