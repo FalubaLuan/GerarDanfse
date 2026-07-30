@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute(("Biblioteca para geração de DANFSe utilizando as regras da nota Nota Técnica nº 00" +
     "8 (SE/CGNFS-e)."))]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.4.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.4+755ab2ad2d4a85d22118265d577d565f8a10daa4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.4+81691ec8158931d7261d2e44ee2f17ac1f1a5f08")]
 [assembly: System.Reflection.AssemblyProductAttribute("GerarDanfse")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GerarDanfse")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.4.0")]

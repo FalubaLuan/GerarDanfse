@@ -236,7 +236,7 @@ namespace GerarDanfse
                     BeneficioMun = FirstNonEmpty(Deep(tribMun, "cBenef"), Deep(tribMun, "tBM")),
                     Deducoes = FirstNonEmpty(Deep(tribMun, "vDeducao"), Deep(tribMun, "vRedBCBM")),
                     CalcBM = FirstNonEmpty(Deep(tribMun, "pRedBCBM"), Deep(tribMun, "pAliqAplicBM")),
-                    DescIncond = FirstNonEmpty(Txt(valNFSe, "vDescIncond"), Deep(tribMun, "vDescIncond")),
+                    DescIncond = FirstNonEmpty(Deep(valNFSe, "vDescIncond"), Deep(tribMun, "vDescIncond")),
                     Bc = Txt(valNFSe, "vBC"),
                     Aliq = FirstNonEmpty(Txt(valNFSe, "pAliqAplic"), Txt(tribMun, "pAliq")),
                     Retencao = Txt(tribMun, "tpRetISSQN"),              // 1=Não,2=Tomador,3=Interm.
