@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net8.0": {
       "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
@@ -557,19 +557,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\secun\\.nuget\\packages\\": {}
+    "C:\\Users\\luan\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.0.4",
+    "version": "1.0.5",
     "restore": {
-      "projectUniqueName": "C:\\Users\\secun\\OneDrive\\Documentos\\Dev\\GerarDanfse\\GerarDanfse\\GerarDanfse.csproj",
+      "projectUniqueName": "C:\\Users\\luan\\Documents\\Desenvolvimento Aplicativos\\4 - Bibliotecas\\GerarDanfse\\GerarDanfse\\GerarDanfse.csproj",
       "projectName": "GerarDanfse",
-      "projectPath": "C:\\Users\\secun\\OneDrive\\Documentos\\Dev\\GerarDanfse\\GerarDanfse\\GerarDanfse.csproj",
-      "packagesPath": "C:\\Users\\secun\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\secun\\OneDrive\\Documentos\\Dev\\GerarDanfse\\GerarDanfse\\obj\\",
+      "projectPath": "C:\\Users\\luan\\Documents\\Desenvolvimento Aplicativos\\4 - Bibliotecas\\GerarDanfse\\GerarDanfse\\GerarDanfse.csproj",
+      "packagesPath": "C:\\Users\\luan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\luan\\Documents\\Desenvolvimento Aplicativos\\4 - Bibliotecas\\GerarDanfse\\GerarDanfse\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\secun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\luan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -581,6 +586,7 @@
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "projectReferences": {}
         }
@@ -595,10 +601,11 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "10.0.300"
     },
     "frameworks": {
       "net8.0": {
+        "framework": "net8.0",
         "targetAlias": "net8.0",
         "dependencies": {
           "PDFsharp": {
@@ -626,7 +633,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
