@@ -61,7 +61,7 @@ namespace GerarDanfse
         /// Lê o XML da NFS-e (leiaute nacional) e devolve o objeto de dados do DANFSe.
         /// Retorna null se o XML for inválido ou não tiver infNFSe.
         /// </summary>
-        public static DanfseData? ParseDanfse(string xmlString, bool isCancelada)
+        public static DanfseData? ParseDanfse(string xmlString, bool isCancelada, bool isSubstituida = false)
         {
             XDocument doc;
             try { doc = XDocument.Parse(xmlString); }
@@ -120,9 +120,17 @@ namespace GerarDanfse
                 "1" => "Não Optante", "2" => "Optante - MEI", "3" => "Optante - ME/EPP", _ => ""
             };
             var cStat = Txt(infNFSe, "cStat");
-            var situacaoLabel = cStat == "100"
-                ? "NFS-e regular (Autorizada)"
-                : (cStat != "" ? "Situação " + cStat : "");
+            var situacaoLabel = cStat switch
+            {
+                "0" => "NFS-e regular",
+                "100" => "NFS-e Gerada",
+                "101" => "NFS-e Substituição Gerada",
+                "102" => "NFS-e de Decisão Judicial ou Administrativa",
+                "103" => "NFS-e Avulsa",
+                "107" => "NFS-e MEI",
+                "" => "",
+                _ => "Situação " + cStat
+            };
 
             // Pessoa v2.0 (Tomador/Destinatário/Intermediário): identidade + endereço.
             Pessoa? PessoaDe(XElement? el, XElement? end, XElement? endNac) => el == null ? null : new Pessoa
@@ -174,7 +182,7 @@ namespace GerarDanfse
                 Situacao = situacaoLabel,
                 CStat = cStat,
                 // Marca d'água (NT-008): o chamador seta cruzando a chave com os eventos.
-                MarcaDagua = isCancelada ? "CANCELADA" : "",
+                MarcaDagua = isCancelada ? "CANCELADA" : isSubstituida ? "SUBSTITUÍDA" : "",
                 Finalidade = FirstNonEmpty(Txt(infDPS, "finNFSe"), "NFS-e"),
                 // Prestador (identidade no emit; regime no DPS/prest)
                 Prest = new Prestador

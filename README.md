@@ -79,6 +79,7 @@ var deps = new DanfseDeps
     LogoPng = File.ReadAllBytes("logo.png"), // opcional
 
     Cancelada = true,
+    isSubstituida = true, // ignorado se Cancelada também for true
 
     Auditoria = false,
     DestacarRet = false
@@ -92,6 +93,7 @@ byte[] pdf = DanfseGenerator.Gerar(xml, deps);
 | --- | --- |
 | `LogoPng` | Logo exibida no DANFSe (opcional) |
 | `Cancelada` | Exibe a marca d'água **CANCELADA** |
+| `isSubstituida` | Exibe a marca d'água **SUBSTITUÍDA** |
 | `Auditoria` | Exibe a tag XML correspondente a cada campo |
 | `DestacarRet` | Destaca os campos de retenção em amarelo |
 

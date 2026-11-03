@@ -277,31 +277,38 @@ namespace GerarDanfse
             // Quadro das Informações Complementares no modo AUDITORIA: UMA info por bloco — o
             // texto (preto) e a sua tag (vermelho) na linha logo abaixo. Texto vazio mostra só
             // a tag.
-            double InfoboxAudit(double yTop, List<(string Txt, string Tag)> items)
+            double InfoboxAudit(double yTop, List<(string Txt, string Tag, bool Hl)> items)
             {
                 const double lineH = 9;
-                var rows = new List<(string T, bool Red)>();
+                var rows = new List<(string T, bool Red, bool Hl)>();
                 foreach (var it in items)
                 {
-                    if (it.Txt != "") foreach (var ln in Wrap(it.Txt, 118, 4)) rows.Add((ln, false));
-                    rows.Add((FmtTag(it.Tag), true));
+                    if (it.Txt != "") foreach (var ln in Wrap(it.Txt, 118, 4)) rows.Add((ln, false, it.Hl));
+                    rows.Add((FmtTag(it.Tag), true, it.Hl));
                 }
-                if (rows.Count == 0) rows.Add(("", false));
+                if (rows.Count == 0) rows.Add(("", false, false));
                 var h = 10 + (rows.Count - 1) * lineH + 4;
                 for (int i = 0; i < rows.Count; i++)
+                {
+                    if (rows[i].Hl) Fill(L, yTop - 3 - i * lineH, W, lineH, GRAY_DESTAQUE); // destaque (nota substituta)
                     T(rows[i].T, L + 2, yTop - 10 - i * lineH, rows[i].Red ? 5 : 7, false, rows[i].Red ? RED : K);
+                }
                 return yTop - h;
             }
             // Quadro das Infos no modo NORMAL: cada CAMPO numa LINHA própria; vazio é pulado;
             // um campo longo ainda quebra em até 4 linhas.
-            double InfoboxNormal(double yTop, List<(string Txt, string Tag)> items)
+            double InfoboxNormal(double yTop, List<(string Txt, string Tag, bool Hl)> items)
             {
                 const double lineH = 9;
-                var lines = new List<string>();
-                foreach (var it in items) if (it.Txt != "") foreach (var ln in Wrap(it.Txt, 118, 4)) lines.Add(ln);
-                if (lines.Count == 0) lines.Add("");
+                var lines = new List<(string T, bool Hl)>();
+                foreach (var it in items) if (it.Txt != "") foreach (var ln in Wrap(it.Txt, 118, 4)) lines.Add((ln, it.Hl));
+                if (lines.Count == 0) lines.Add(("", false));
                 var h = 10 + (lines.Count - 1) * lineH + 4;
-                for (int i = 0; i < lines.Count; i++) T(lines[i], L + 2, yTop - 10 - i * lineH, 7, false, K);
+                for (int i = 0; i < lines.Count; i++)
+                {
+                    if (lines[i].Hl) Fill(L, yTop - 3 - i * lineH, W, lineH, GRAY_DESTAQUE); // destaque (nota substituta)
+                    T(lines[i].T, L + 2, yTop - 10 - i * lineH, 7, false, K);
+                }
                 return yTop - h;
             }
             // Linha centralizada (ex.: "INTERMEDIÁRIO ... NÃO IDENTIFICADO")
@@ -348,7 +355,7 @@ namespace GerarDanfse
                 });
                 yTop = Row(yTop, RH, new[]
                 {
-                    C(0.75, "*Endereço", p.Endereco, new Opt { Tag = tags.End }),
+                    C(0.75, "Endereço", p.Endereco, new Opt { Tag = tags.End }),
                     C(0.25, "E-mail", p.Email, new Opt { Tag = tags.Email }),
                 });
                 return yTop;
@@ -678,20 +685,23 @@ namespace GerarDanfse
             var nbsTag = data.Serv.XNBS != "" ? "cServ>cNBS + infNFSe>xNBS" : "cServ>cNBS + (tabela NBS)";
             var icp = data.InfoCompl;
             string Lbl(string rot, string v) => v != "" ? rot + ": " + v : ""; // '' se vazio → pulado no normal
-            var infoItems = new List<(string Txt, string Tag)>
+            // Nota SUBSTITUTA (referencia a nota substituída nos dados adicionais): mesmo
+            // destaque usado nos campos de retenção.
+            bool notaSubstituta = icp.ChSubstda != "";
+            var infoItems = new List<(string Txt, string Tag, bool Hl)>
             {
-                (data.Serv.XInfComp ?? "", "serv>infoCompl>xInfComp"),
-                (nbsTxt, nbsTag),
-                (Lbl("NFS-e Substituída", icp.ChSubstda), "subst>chSubstda"),
-                (Lbl("Documento de Referência", icp.DocRef), "infoCompl>docRef"),
-                (Lbl("Código da Obra (CNO)", icp.CObra), "obra>cObra"),
-                (Lbl("Inscrição Imobiliária Fiscal", icp.InscImobFisc), "imovel>inscImobFisc"),
-                (Lbl("Atividade do Evento", icp.IdAtvEvt), "atvEvento>idAtvEvt"),
-                (Lbl("Documento Técnico", icp.IdDocTec), "infoCompl>idDocTec"),
-                (Lbl("Pedido", icp.XPed), "infoCompl>xPed"),
-                (Lbl("Item do Pedido", icp.XItemPed), "gItemPed>xItemPed"),
-                (icp.XOutInf ?? "", "infNFSe>xOutInf"),
-                (taTxt, "totTrib>vTotTribFed/Est/Mun ou pTotTribFed/Est/Mun ou pTotTribSN"),
+                (data.Serv.XInfComp ?? "", "serv>infoCompl>xInfComp", false),
+                (nbsTxt, nbsTag, false),
+                (Lbl("NFS-e Substituída", icp.ChSubstda), "subst>chSubstda", hlRet && notaSubstituta),
+                (Lbl("Documento de Referência", icp.DocRef), "infoCompl>docRef", false),
+                (Lbl("Código da Obra (CNO)", icp.CObra), "obra>cObra", false),
+                (Lbl("Inscrição Imobiliária Fiscal", icp.InscImobFisc), "imovel>inscImobFisc", false),
+                (Lbl("Atividade do Evento", icp.IdAtvEvt), "atvEvento>idAtvEvt", false),
+                (Lbl("Documento Técnico", icp.IdDocTec), "infoCompl>idDocTec", false),
+                (Lbl("Pedido", icp.XPed), "infoCompl>xPed", false),
+                (Lbl("Item do Pedido", icp.XItemPed), "gItemPed>xItemPed", false),
+                (icp.XOutInf ?? "", "infNFSe>xOutInf", false),
+                (taTxt, "totTrib>vTotTribFed/Est/Mun ou pTotTribFed/Est/Mun ou pTotTribSN", false),
             };
             // Altura: normal conta só as linhas com texto; auditoria soma +1 linha de tag/campo.
             int infoLines = 0, infoRows = 0;
@@ -803,7 +813,7 @@ namespace GerarDanfse
         /// <exception cref="InvalidOperationException">XML inválido para DANFSe.</exception>
         public static byte[] Gerar(string xmlString, DanfseDeps deps)
         {
-            var data = DanfseParser.ParseDanfse(xmlString, deps.isCancelada)
+            var data = DanfseParser.ParseDanfse(xmlString, deps.isCancelada, deps.isSubstituida)
                        ?? throw new InvalidOperationException("XML inválido para DANFSe");
             return DanfsePdfBuilder.Build(data, deps);
         }

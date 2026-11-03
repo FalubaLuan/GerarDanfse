@@ -227,6 +227,9 @@ namespace GerarDanfse
         /// <summary>Destaca os campos de RETENÇÃO com fundo amarelo.</summary>
         public bool DestacarRet { get; set; } = true;
         public bool isCancelada { get; set; } = false;
+
+        /// <summary>Nota substituída por outra (NT-008): exibe a marca d'água SUBSTITUÍDA. Ignorado se <see cref="isCancelada"/> também for true.</summary>
+        public bool isSubstituida { get; set; } = false;
         private static byte[] GetAsset(string assetPath)
         {
             var assembly = Assembly.GetExecutingAssembly();
